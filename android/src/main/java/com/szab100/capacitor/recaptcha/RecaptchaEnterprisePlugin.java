@@ -24,8 +24,12 @@ public class RecaptchaEnterprisePlugin extends Plugin {
         }
         this.siteKey = key;
         Recaptcha.fetchTaskClient(getActivity().getApplication(), this.siteKey)
-            .addOnSuccessListener(client -> recaptchaTasksClient = client)
-            .addOnFailureListener(e -> call.reject("Failed to init reCAPTCHA: " + e.getMessage()));
+          .addOnSuccessListener(client -> {
+              recaptchaTasksClient = client;
+              JSObject ret = new JSObject();
+              ret.put("siteKey", siteKey);
+              call.resolve(ret);
+          }).addOnFailureListener(e -> call.reject("Failed to init reCAPTCHA: " + e.getMessage()));
     }
 
     @PluginMethod
