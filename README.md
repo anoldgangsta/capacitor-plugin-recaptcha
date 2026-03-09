@@ -145,7 +145,7 @@ npx cap sync
 ### load(...)
 
 ```typescript
-load(options: { siteKey: string; }) => Promise<void>
+load(options: { siteKey: string; }) => any
 ```
 
 Loads the reCAPTCHA SDK or native client with the given siteKey. Must be called during app startup before any execute calls.
@@ -154,13 +154,15 @@ Loads the reCAPTCHA SDK or native client with the given siteKey. Must be called 
 | ------------- | --------------------------------- |
 | **`options`** | <code>{ siteKey: string; }</code> |
 
+**Returns:** <code>any</code>
+
 --------------------
 
 
 ### execute(...)
 
 ```typescript
-execute(options: { action: string; }) => Promise<{ token: string; siteKey: string; }>
+execute(options: { action: string; }) => any
 ```
 
 Executes reCAPTCHA Enterprise with the given action and returns a token.
@@ -169,7 +171,7 @@ Executes reCAPTCHA Enterprise with the given action and returns a token.
 | ------------- | -------------------------------- |
 | **`options`** | <code>{ action: string; }</code> |
 
-**Returns:** <code>Promise&lt;{ token: string; siteKey: string; }&gt;</code>
+**Returns:** <code>any</code>
 
 --------------------
 
